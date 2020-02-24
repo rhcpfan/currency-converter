@@ -9,19 +9,6 @@
 import Foundation
 import Alamofire
 
-enum ExchangeRatesApiError: Error {
-    case nilResponse
-    case invalidCurrencyCode
-    case decodeTimestampError
-}
-
-/// Protocol used to describe the networking layer.
-protocol ExchangeRatesApiClientProtocol {
-    func getLatestExchangeRates(baseCurrency: Currency, completion: @escaping ((Result<ExchangeRate, Error>) -> Void))
-    func getExchangeRatesHistory(base: Currency, currencies: [Currency], from startDate: Date, to endDate: Date, completion: @escaping ((Result<ExchangeRateHistory, Error>) -> Void))
-}
-
-
 /// API Client that fetches exchange rates data from `https://api.exchangeratesapi.io`
 class ExchangeRatesApiIoClient: ExchangeRatesApiClientProtocol {
 
@@ -31,7 +18,6 @@ class ExchangeRatesApiIoClient: ExchangeRatesApiClientProtocol {
     var dateFormat = "yyyy-MM-dd"
 
     // MARK: - Instance Methods -
-
 
     /// Fetches the latest exchange rates.
     /// - Parameters:
