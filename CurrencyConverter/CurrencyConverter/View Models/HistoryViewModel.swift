@@ -24,6 +24,8 @@ class HistoryViewModel {
     var currencyHistoryCellViewModels: [ExchangeRateHistoryCellViewModel]?
     /// Closure used to signal that the exchange rate history was updated.
     var didUpdateExchangeRateHistory: (() -> Void)?
+    /// Closure used to signal that fetching the exchange rate history failed.
+    var didFailGettingExchangeRateHistory: ((String) -> Void)?
 
     // MARK: - Instance Methods -
 
@@ -49,7 +51,7 @@ class HistoryViewModel {
             case .success(let exchangeRateHistory):
                 self?.update(with: exchangeRateHistory)
             case .failure(let error):
-                fatalError(error.localizedDescription)
+                self?.didFailGettingExchangeRateHistory?(error.localizedDescription)
             }
         })
     }

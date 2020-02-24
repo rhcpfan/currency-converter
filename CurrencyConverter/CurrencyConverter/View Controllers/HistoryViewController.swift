@@ -31,10 +31,18 @@ class HistoryViewController: UITableViewController {
 
     func configureViewModel() {
         viewModel.didUpdateExchangeRateHistory = self.updateExchangeRateHistory
+        viewModel.didFailGettingExchangeRateHistory = self.displayErrorMessage
     }
 
     func updateExchangeRateHistory() {
         self.tableView.reloadData()
+    }
+
+    func displayErrorMessage(_ message: String) {
+        let alertVC = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        alertVC.addAction(okAction)
+        self.present(alertVC, animated: true, completion: nil)
     }
 
     // MARK: - UITableViewDataSource Implementation -

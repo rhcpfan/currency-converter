@@ -561,7 +561,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="selectedImageTintColor" name="Tab Bar - Tint Color"/>
+                        <color key="selectedImageTintColor" name="Main Accent Color"/>
                     </tabBar>
                     <connections>
                         <segue destination="CQf-Ez-RNy" kind="relationship" relationship="viewControllers" id="4ov-cQ-G2l"/>
@@ -579,6 +579,9 @@
         <image name="book" catalog="system" width="64" height="50"/>
         <image name="gear" catalog="system" width="64" height="58"/>
         <image name="info.circle" catalog="system" width="64" height="60"/>
+        <namedColor name="Main Accent Color">
+            <color red="0.66666666666666663" green="0.12549019607843137" blue="0.12549019607843137" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="Tab Bar - Tint Color">
             <color red="0.66666666666666663" green="0.12549019607843137" blue="0.12549019607843137" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

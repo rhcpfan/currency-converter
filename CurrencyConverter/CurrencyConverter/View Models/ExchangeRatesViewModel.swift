@@ -42,6 +42,14 @@ class ExchangeRatesViewModel {
 
     /// Starts to fetch exchange rates at the interval defined in the application settings.
     func startFetchingExchangeRates() {
+
+        // Make sure we have an internet connection
+        guard apiClient.isConnectedToInternet else {
+            let message = "Please make sure you have an internet connection."
+            self.displayErrorAlertClosure?(message)
+            return
+        }
+
         let refreshInterval = Defaults[\.refreshTimeInterval]
         refreshTimer?.invalidate()
         refreshTimer = Timer.scheduledTimer(withTimeInterval: refreshInterval, repeats: true, block: { [weak self] _ in
